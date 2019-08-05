@@ -1,0 +1,44 @@
+:root {
+  --ball-size: 80px;
+  --top-position: 40px;
+  --ball-color: rgb(255, 0, 0);
+  --lighting-color: rgb(255, 160, 122);
+  --ground-position: 300px;
+}
+
+body {
+  background: white;
+  width: 100vw;
+  height: var(--ground-position);
+  position: absolute;
+  top: 0;
+  border-bottom: 2px solid rgb(90, 69, 24);
+}
+
+.bouncing-ball {
+  width: var(--ball-size);
+  height: var(--ball-size);
+  margin: 0 auto;
+  margin-top: var(--top-position);
+  border-radius: 50%;
+  background-color: var(--ball-color);
+  background-image: radial-gradient(closest-side at 30% 30%, var(--lighting-color), var(--ball-color));
+  animation: bounce 900ms infinite;
+  -webkit-animation: bounce 900ms infinite;
+  -moz-animation: bounce 900ms infinite;
+  -o-animation: bounce 900ms infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    animation-timing-function: ease-in;
+    -webkit-animation: ease-in;
+    -moz-animation: ease-in;
+    -o-animation: ease-in;
+    margin-top: var(--top-position);
+  }
+
+  50% {
+    margin-top: calc(var(--ground-position) - var(--ball-size) + 2px);
+  }
+}
